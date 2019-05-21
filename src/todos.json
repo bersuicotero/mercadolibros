@@ -1,0 +1,81 @@
+{
+    "todos":[
+        {
+            "titulo": "El señor de los anillos",
+            "genero": "ciencia ficcion / fantasia",
+            "descripcion": "Lorem ipsum",
+            "precio": "$150"
+
+        },
+        {
+            "titulo": "El señor de los anillos",
+            "genero": "ciencia ficcion / fantasia",
+            "descripcion": "Lorem ipsum",
+            "precio": "$150"
+
+        },
+        {
+            "titulo": "El señor de los anillos",
+            "genero": "ciencia ficcion / fantasia",
+            "descripcion": "Lorem ipsum",
+            "precio": "$150"
+
+        },
+        {
+            "titulo": "El señor de los anillos",
+            "genero": "ciencia ficcion / fantasia",
+            "descripcion": "Lorem ipsum",
+            "precio": "$150"
+
+        },
+        {
+            "titulo": "El señor de los anillos",
+            "genero": "ciencia ficcion / fantasia",
+            "descripcion": "Lorem ipsum",
+            "precio": "$150"
+
+        },
+        {
+            "titulo": "El señor de los anillos",
+            "genero": "ciencia ficcion / fantasia",
+            "descripcion": "Lorem ipsum",
+            "precio": "$150"
+
+        },
+        {
+            "titulo": "El señor de los anillos",
+            "genero": "ciencia ficcion / fantasia",
+            "descripcion": "Lorem ipsum",
+            "precio": "$150"
+
+        },
+        {
+            "titulo": "El señor de los anillos",
+            "genero": "ciencia ficcion / fantasia",
+            "descripcion": "Lorem ipsum",
+            "precio": "$150"
+
+        },
+        {
+            "titulo": "El señor de los anillos",
+            "genero": "ciencia ficcion / fantasia",
+            "descripcion": "Lorem ipsum",
+            "precio": "$150"
+
+        },
+        {
+            "titulo": "El señor de los anillos",
+            "genero": "ciencia ficcion / fantasia",
+            "descripcion": "Lorem ipsum",
+            "precio": "$150"
+
+        },
+        {
+            "titulo": "El señor de los anillos",
+            "genero": "ciencia ficcion / fantasia",
+            "descripcion": "Lorem ipsum",
+            "precio": "$150"
+
+        }
+    ]
+}
