@@ -12,19 +12,19 @@ self.__precacheManifest = [
     "url": "/mercadolibros/static/js/runtime~main.f8ff199c.js"
   },
   {
-    "revision": "59fea9209fb3b9ff507d",
-    "url": "/mercadolibros/static/js/main.b6d590cf.chunk.js"
+    "revision": "c0f86827e52fc569d06c",
+    "url": "/mercadolibros/static/js/main.7ebf87ef.chunk.js"
   },
   {
     "revision": "23e25e36c0a1a63a7ee6",
     "url": "/mercadolibros/static/js/2.fc8ce8e3.chunk.js"
   },
   {
-    "revision": "59fea9209fb3b9ff507d",
+    "revision": "c0f86827e52fc569d06c",
     "url": "/mercadolibros/static/css/main.4469de9e.chunk.css"
   },
   {
-    "revision": "1574ac9f4e8d7012bd9f58b2f142bdaa",
+    "revision": "1a4080f85069a890091b3f6d09e341d7",
     "url": "/mercadolibros/index.html"
   }
 ];
