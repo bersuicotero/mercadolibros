@@ -12,30 +12,33 @@ class Login extends Component{
         this.state ={
             username:"",
             password:"",
-            ir: false
+            ir: false,
         };
-        this.routeChange = this.routeChange.bind(this);
         this.recibe = this.recibe.bind(this);
     }
-    routeChange(x){
-        let path = x;        
-        this.props.history.push(path);   
-      }
-      recibe(){
-          PostData("authenticate", this.state).then ((result)=>{
-              let responseJSON = result;
-              if(responseJSON){
-                  sessionStorage.setItem('', responseJSON);
-                  this.setState({ir: true})
-              }
-              else{
-
-                console.log(result);
-              }
-
-          })
-      }
-    validateForm(){
+    async recibe(){    
+        let request = {
+            username : this.state.username,
+            password : this.state.password
+        }
+        var result = await PostData("authenticate", request);
+        var uAdmin="Admin", user="User";
+        var json = await result.json();
+        
+        localStorage.setItem('role',json.role);
+        if(result && result.status===200 && user === localStorage.role){
+            console.log(result);
+            localStorage.setItem('session', json.token);
+            this.setState({ir: true})
+        } else if(result && result.status===200 && uAdmin === localStorage.role){
+            localStorage.setItem('sessionAdmin', json.token);
+            this.setState({ir: true})
+        } else {
+            
+            console.log(json);
+        }
+    };
+    validateForm() {
         return this.state.username.length > 0 && this.state.password.length > 0;
     }
     handleChange = event =>{
@@ -44,15 +47,15 @@ class Login extends Component{
         });
     }
     handleSubmit = event =>{
-        event.preventDefault();
+        event.preventDefault();    
     }
-
     render(){
         if(this.state.ir){
-            return (<Redirect to="./Productos"/>)
-        }
-        if(sessionStorage.getItem('')){
-            return (<Redirect to="./Productos"/>)
+            if(localStorage.getItem('session')){
+                return (<Redirect to="./Productos"/>)  
+            }else if(localStorage.getItem('sessionAdmin')){
+                return (<Redirect to="./CargarLibros"/>)
+            }
         }
         return(
             <div className="col-md-6 col-lg-6 center-block">
@@ -86,6 +89,7 @@ class Login extends Component{
                             <Button className="btn btn-success" block bsSize="large" 
                             disabled={!this.validateForm()} 
                             type="submit"
+                            onChange={this.handleChange}
                             onClick={this.recibe}>Ingresar</Button>
                         </div>
                     </div>

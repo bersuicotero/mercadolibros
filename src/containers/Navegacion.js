@@ -1,58 +1,37 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom";
-import { Nav, Navbar, NavItem } from "react-bootstrap";
-import {LinkContainer} from "react-router-bootstrap";
+import { Button,ButtonGroup,ButtonToolbar } from "react-bootstrap";
+import {withRouter} from 'react-router-dom'
 
-export default class Navegacion extends Component {
-  logout(){
-    sessionStorage.setItem("",'');
-    sessionStorage.clear();
+
+class Navegacion extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      isLoading: false
+    }
+    this.routeChange = this.routeChange.bind(this);
+  }
+  routeChange(x){
+    var path = x;        
+    this.props.history.push(path);   
+  }
+  handleSubmit = async event =>{
+    event.preventDefault();
+    this.setState({ isLoading: true });
   }
   render() {
       return (
-        <div>
-          {sessionStorage.getItem('')?(
-              <Navbar fluid collapseOnSelect>
-              <Navbar.Header>
-                <Navbar.Brand>
-                  <Link to="/" id="link">MercadoLibros</Link>
-                </Navbar.Brand>
-                <Navbar.Toggle />
-              </Navbar.Header>
-              <Navbar.Collapse>
-                <Nav pullRight>
-                  <LinkContainer to="Carrito">
-                      <NavItem>Carrito</NavItem>
-                    </LinkContainer>
-                    <LinkContainer to="Login">
-                      <NavItem onClick={sessionStorage.clear()}>Salir</NavItem>
-                    </LinkContainer>  
-                </Nav>
-              </Navbar.Collapse>
-            </Navbar>
-          ):(
-            <Navbar fluid collapseOnSelect>
-            <Navbar.Header>
-              <Navbar.Brand>
-                <Link to="/" id="link">MercadoLibros</Link>
-              </Navbar.Brand>
-              <Navbar.Toggle />
-            </Navbar.Header>
-            <Navbar.Collapse>
-              <Nav pullRight>
-                <LinkContainer to="Registrarse">
-                    <NavItem>Registrarse</NavItem>
-                  </LinkContainer>
-                  <LinkContainer to="Login">
-                    <NavItem>Ingresar</NavItem>
-                  </LinkContainer>  
-              </Nav>
-            </Navbar.Collapse>
-          </Navbar>
-          )}
-
+        <div onSubmit={this.handleSubmit}>
+            <ButtonToolbar>
+                    <ButtonGroup>
+                        <Button onClick={() => this.routeChange('./CargarLibros')}>Cargar libros</Button>
+                        <Button onClick={() => this.routeChange('./BuscarUsuarios')}>Buscar usuarios</Button>
+                        <Button onClick={() => this.routeChange('./ABMUsuarios')}>ABM Usuarios</Button>
+                    </ButtonGroup>
+            </ButtonToolbar>
         </div>
       )
   }
 }
 
+export default withRouter(Navegacion)
