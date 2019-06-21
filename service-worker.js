@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/mercadolibros/precache-manifest.6491730caa3447ae872512d9f4ccdac2.js"
+  "/mercadolibros/precache-manifest.f9ac95506ecfdbac58182b36f6719317.js"
 );
 
 workbox.clientsClaim();
