@@ -26,7 +26,6 @@ class Navegacion extends Component {
                     <ButtonGroup>
                         <Button onClick={() => this.routeChange('./CargarLibros')}>Cargar libros</Button>
                         <Button onClick={() => this.routeChange('./BuscarUsuarios')}>Buscar usuarios</Button>
-                        <Button onClick={() => this.routeChange('./ABMUsuarios')}>ABM Usuarios</Button>
                     </ButtonGroup>
             </ButtonToolbar>
         </div>

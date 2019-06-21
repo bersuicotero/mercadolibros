@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Button, FormGroup, FormControl, ControlLabel} from "react-bootstrap";
+import {Button, FormGroup, FormControl, ControlLabel,Panel} from "react-bootstrap";
 import "./Login.css";
 import login from "./Login.png";
 import {withRouter, Redirect} from 'react-router-dom';
@@ -13,6 +13,7 @@ class Login extends Component{
             username:"",
             password:"",
             ir: false,
+            error:null
         };
         this.recibe = this.recibe.bind(this);
     }
@@ -34,8 +35,8 @@ class Login extends Component{
             localStorage.setItem('sessionAdmin', json.token);
             this.setState({ir: true})
         } else {
-            
-            console.log(json);
+            this.setState({error: json.message})
+            console.log(json.message);
         }
     };
     validateForm() {
@@ -58,42 +59,49 @@ class Login extends Component{
             }
         }
         return(
-            <div className="col-md-6 col-lg-6 center-block">
-                <div className="Login">
-                    <div className="card mt-4">
-                        <img className="card-img-top" style={{ width: 180 }} src={login}  
-                        alt="Card Ingresar"></img>
-                        <div className="card-body">
-                            <form onSubmit={this.handleSubmit}>
-                            <FormGroup controlId="username" bsSize="large">
-                                <ControlLabel>Usuario</ControlLabel>
-                                <FormControl autoFocus
-                                type="username"
-                                value={this.state.username}
+            
+            <div>
+                <Panel>
+                <Panel.Heading><h1>Iniciar sesión</h1></Panel.Heading>
+                <Panel.Body>
+                    <div className="Login">
+                        <div className="card mt-4">
+                            <img className="card-img-top" style={{ width: 180 }} src={login}  
+                            alt="Card Ingresar"></img>
+                            <div className="card-body">
+                                <form onSubmit={this.handleSubmit}>
+                                <FormGroup controlId="username" bsSize="large">
+                                    <ControlLabel>Usuario</ControlLabel>
+                                    <FormControl autoFocus
+                                    type="username"
+                                    value={this.state.username}
+                                    onChange={this.handleChange}
+                                    placeholder="Usuario"
+                                    />
+                                </FormGroup>
+                                <FormGroup controlId="password" bsSize="large">
+                                    <ControlLabel>Password</ControlLabel>
+                                    <FormControl autoFocus
+                                    type="password"
+                                    value={this.state.password}
+                                    onChange={this.handleChange}
+                                    placeholder="Password"
+                                    />
+                                </FormGroup>
+                                </form>
+                            </div>
+                            <div className="card-footer">
+                                <Button className="btn btn-success" block bsSize="large" 
+                                disabled={!this.validateForm()} 
+                                type="submit"
                                 onChange={this.handleChange}
-                                placeholder="Usuario"
-                                />
-                            </FormGroup>
-                            <FormGroup controlId="password" bsSize="large">
-                                <ControlLabel>Password</ControlLabel>
-                                <FormControl autoFocus
-                                type="password"
-                                value={this.state.password}
-                                onChange={this.handleChange}
-                                placeholder="Password"
-                                />
-                            </FormGroup>
-                            </form>
-                        </div>
-                        <div className="card-footer">
-                            <Button className="btn btn-success" block bsSize="large" 
-                            disabled={!this.validateForm()} 
-                            type="submit"
-                            onChange={this.handleChange}
-                            onClick={this.recibe}>Ingresar</Button>
+                                onClick={this.recibe}>Ingresar</Button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </Panel.Body>
+                <Panel.Footer><div style={{color: "#FF0000"}}>{this.state.error}</div></Panel.Footer>
+                </Panel>
             </div>
         );
     }

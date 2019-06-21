@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {  FormGroup, FormControl, ControlLabel, Button} from "react-bootstrap";
+import {  FormGroup, FormControl, ControlLabel, Button, Panel} from "react-bootstrap";
 import "./Registrarse.css";
 import {withRouter} from 'react-router-dom';
 
@@ -14,7 +14,9 @@ class Registrarse extends Component{
             Apellido: "",
             Password:"",
             confirmPassword:"",
-            newUser:null
+            newUser:null,
+            error:null,
+            mensaje:null
         };
         this.routeChange = this.routeChange.bind(this);
         this.send = this.send.bind(this);
@@ -23,8 +25,8 @@ class Registrarse extends Component{
       let path = './Login';        
       this.props.history.push(path);   
     }
-    send() {
-      fetch("https://miapp-taller6.herokuapp.com/usuarios/create", {
+    async send() {
+      const response = await fetch("https://miapp-taller6.herokuapp.com/usuarios/create", {
         method: 'POST',
         body: JSON.stringify({
           username: this.state.Username,
@@ -36,9 +38,18 @@ class Registrarse extends Component{
           'Content-Type': 'application/json'
         }
       })
-      .then((a) => console.log(a))
-      .then(this.routeChange)
-      .catch(error => console.error('Error:', error))
+      const data = await response.json()
+      if(response.status >=200 && response.status <299){
+        this.setState({
+            mensaje: data.message,
+            error: null
+        })
+        }else{
+            this.setState({
+                error: data.message,
+                mensaje: null
+            })
+        }
     }
 
     validateForm(){
@@ -128,7 +139,14 @@ class Registrarse extends Component{
     render() {
         return (
           <div className="Signup">
-            {this.renderForm()}
+          <Panel>
+            <Panel.Heading><h1>Registrarse</h1></Panel.Heading>
+            <Panel.Body>{this.renderForm()}</Panel.Body>
+            <Panel.Footer>
+            <div style={{color: "#FF0000"}}>{this.state.error}</div>
+            <div style={{color: "#2E8B57"}}>{this.state.mensaje}</div>
+            </Panel.Footer>
+          </Panel>                 
           </div>
         );
     }

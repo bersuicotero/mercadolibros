@@ -13,9 +13,13 @@ export default class NavSession extends Component {
         if(localStorage){
           if (localStorage.getItem('session')) {
           buttonRegistro = <NavItem>Carrito</NavItem>
+          btnBuscar = <NavItem>Productos</NavItem>
           buttonLogin = <NavItem onClick={this.logout}>Salir</NavItem>
           renderizado=
           <Nav pullRight>
+            <LinkContainer to="Productos">
+              {btnBuscar}
+            </LinkContainer>
             <LinkContainer to="Carrito">
               {buttonRegistro}
             </LinkContainer>
@@ -29,7 +33,7 @@ export default class NavSession extends Component {
           buttonLogin = <NavItem onClick={this.logout}>Salir</NavItem>
           renderizado=
           <Nav pullRight>
-            <LinkContainer to="ABMUsuarios">
+            <LinkContainer to="BuscarUsuarios">
               {btnBuscar}
             </LinkContainer>
             <LinkContainer to="CargarLibros">
