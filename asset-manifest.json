@@ -1,15 +1,15 @@
 {
-  "main.css": "/mercadolibros/static/css/main.4469de9e.chunk.css",
-  "main.js": "/mercadolibros/static/js/main.7d6bc26a.chunk.js",
-  "main.js.map": "/mercadolibros/static/js/main.7d6bc26a.chunk.js.map",
-  "runtime~main.js": "/mercadolibros/static/js/runtime~main.f8ff199c.js",
-  "runtime~main.js.map": "/mercadolibros/static/js/runtime~main.f8ff199c.js.map",
-  "static/js/2.12b42c6f.chunk.js": "/mercadolibros/static/js/2.12b42c6f.chunk.js",
-  "static/js/2.12b42c6f.chunk.js.map": "/mercadolibros/static/js/2.12b42c6f.chunk.js.map",
-  "index.html": "/mercadolibros/index.html",
-  "precache-manifest.f9ac95506ecfdbac58182b36f6719317.js": "/mercadolibros/precache-manifest.f9ac95506ecfdbac58182b36f6719317.js",
-  "service-worker.js": "/mercadolibros/service-worker.js",
-  "static/css/main.4469de9e.chunk.css.map": "/mercadolibros/static/css/main.4469de9e.chunk.css.map",
-  "static/media/Login.png": "/mercadolibros/static/media/Login.e56b8419.png",
-  "static/media/la-comunidad-del-anillo-200x296.jpg": "/mercadolibros/static/media/la-comunidad-del-anillo-200x296.7a66dbcb.jpg"
+  "main.css": "/static/css/main.4469de9e.chunk.css",
+  "main.js": "/static/js/main.8362990f.chunk.js",
+  "main.js.map": "/static/js/main.8362990f.chunk.js.map",
+  "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+  "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+  "static/js/2.531bd96b.chunk.js": "/static/js/2.531bd96b.chunk.js",
+  "static/js/2.531bd96b.chunk.js.map": "/static/js/2.531bd96b.chunk.js.map",
+  "index.html": "/index.html",
+  "precache-manifest.d9248ca9566ee0cc40845a8770257c5b.js": "/precache-manifest.d9248ca9566ee0cc40845a8770257c5b.js",
+  "service-worker.js": "/service-worker.js",
+  "static/css/main.4469de9e.chunk.css.map": "/static/css/main.4469de9e.chunk.css.map",
+  "static/media/Login.png": "/static/media/Login.e56b8419.png",
+  "static/media/la-comunidad-del-anillo-200x296.jpg": "/static/media/la-comunidad-del-anillo-200x296.7a66dbcb.jpg"
 }
